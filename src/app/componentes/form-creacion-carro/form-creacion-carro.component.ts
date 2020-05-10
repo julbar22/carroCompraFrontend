@@ -1,7 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CarroServiceService } from 'src/app/services/carro-service.service';
-import { EventEmitter } from 'protractor';
 
 
 @Component({
@@ -11,7 +10,7 @@ import { EventEmitter } from 'protractor';
 })
 export class FormCreacionCarroComponent implements OnInit {
 
-  @Output("seleccionCarro") seleccionCarro: EventEmitter;
+  @Output("seleccionCarro") seleccionCarro = new EventEmitter<any>();
   constructor(private formBuilder: FormBuilder, private carritoService: CarroServiceService) { }
 
   public formGroup: FormGroup;

@@ -1,18 +1,20 @@
-<h3>Carrito Compras</h3>
-<p>Datos para simular la creacion de un carrito de compras</p>
-<form [formGroup]="formGroup">
-    <div class="form-group">
-        <label for="nombreUsuario">Nombre Usuario</label>
-        <input type="text" class="form-control" formControlName="nombreUsuario" id="nombreUsuario" placeholder="Nombre">
-    </div>
-    <div class="form-group">
-        <label for="documentoUsuario">Documento Usuario</label>
-        <input type="text" class="form-control" formControlName="documentoUsuario" id="documentoUsuario"
-            placeholder="Documento">
-    </div>
-    <div class="form-group">
-        <label for="fechaCreacion">Fecha Creacion</label>
-        <input type="date" class="form-control" formControlName="fechaCreacion" id="fechaCreacion">
-    </div>
-    <button (click)="crearCarro()" type="button" class="btn btn-primary">Submit</button>
-</form>
+<div class="container">
+    <h3>Carrito Compras</h3>
+    <p>Datos para simular la creacion de un carrito de compras</p>
+    <form [formGroup]="formGroup">
+        <div class="form-group">
+            <label for="nombreUsuario">Nombre Usuario</label>
+            <input type="text" class="form-control" formControlName="nombreUsuario" id="nombreUsuario" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+            <label for="documentoUsuario">Documento Usuario</label>
+            <input type="text" class="form-control" formControlName="documentoUsuario" id="documentoUsuario"
+                placeholder="Documento">
+        </div>
+        <div class="form-group">
+            <label for="fechaCreacion">Fecha Creacion</label>
+            <input type="date" class="form-control" formControlName="fechaCreacion" id="fechaCreacion">
+        </div>
+        <button (click)="crearCarro()" type="button" class="btn btn-primary">Submit</button>
+    </form>
+</div>

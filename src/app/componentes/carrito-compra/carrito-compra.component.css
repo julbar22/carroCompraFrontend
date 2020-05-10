@@ -1,0 +1,23 @@
+.productoLista{
+    padding: 5px;
+    margin: 5px;
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+
+.productoTitulo{
+    background-color: cornflowerblue;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.carritoFondo{
+    background-image: url('../../../assets/carrito-imagen.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    position: absolute;
+    height: 500px;
+}
