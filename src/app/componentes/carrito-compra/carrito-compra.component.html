@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-6">
+        <h4>El carro {{carroSeleccionado.tipo}} fue seleccionado para su siguiente compra</h4>
+    </div>
+    <div class="col-6">
+        <h4>Lista de productos disponibles</h4>
+        <div *ngFor="let producto of listaProductos">
+            <div class="col-4">{{producto.nombre}}</div>
+            <div class="col-4">{{producto.valor}}</div>
+            <div class="col-4">
+                <button (click)="agregarProducto(producto)">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>

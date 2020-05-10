@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CarritoFrontend';
+  carritoCompras: any = null;
+
+  /**
+   * 
+   * @param carrito 
+   * Se usara para eliminar el carro cuando vuelva a null
+   */
+  seleccionCarro(carrito:any){
+    this.carritoCompras = carrito;
+  }
 }
+
+
+

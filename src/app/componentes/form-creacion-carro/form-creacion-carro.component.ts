@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CarroServiceService } from 'src/app/services/carro-service.service';
+import { EventEmitter } from 'protractor';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { CarroServiceService } from 'src/app/services/carro-service.service';
 })
 export class FormCreacionCarroComponent implements OnInit {
 
+  @Output("seleccionCarro") seleccionCarro: EventEmitter;
   constructor(private formBuilder: FormBuilder, private carritoService: CarroServiceService) { }
 
   public formGroup: FormGroup;
@@ -36,7 +38,7 @@ export class FormCreacionCarroComponent implements OnInit {
       fechaCreacion: fecha
     }
     this.carritoService.crearCarrito(request).subscribe(data => {
-
+      this.seleccionCarro.emit(data);
     })
 
 

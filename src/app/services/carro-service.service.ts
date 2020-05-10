@@ -13,4 +13,8 @@ export class CarroServiceService {
   crearCarrito(request: any): Observable<any> {
     return this.http.post(this.urlBase + '/crear', request);
   }
+
+  listaProductos(): Observable<any>{
+    return this.http.get(this.urlBase+'/productos');
+  }
 }
