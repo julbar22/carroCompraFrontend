@@ -1,26 +1,33 @@
-<div class="row">
-    <div class="carritoFondo col-6"></div>
+<div class="carritoFondo col-6"></div>
+<div class="row">    
     <div class="col-6">
-        <div class="row">
+        <div class="col-12">
             <h4>El carro {{carroSeleccionado.tipo}} fue seleccionado para su siguiente compra</h4>
-            <div *ngIf="listaProductosSeleccionados.length>0" class="row productoTitulo">
-                <div class="col-4">Nombre</div>
-                <div class="col-4">Valor</div>
-                <div class="col-4">Cantidad</div>
-            </div>
-            <div class="row productoLista" *ngFor="let producto of listaProductosSeleccionados">
-                <div class="col-4">{{producto.nombre}}</div>
-                <div class="col-4">{{producto.valor}}</div>
-                <div class="col-2">{{producto.cantidad}}</div>
-                <div class="col-2">
-                    <button type="button" class="btn btn-danger" (click)="eliminarProducto(producto)">Eliminar</button>
-                </div>
-            </div>
-            <div>
-                <button type="button" class="btn btn-info" (click)="consultarTotal()">Consultar Total</button>
+        </div>
+        <div *ngIf="listaProductosSeleccionados.length>0" class="row productoTitulo">
+            <div class="col-4">Nombre</div>
+            <div class="col-4">Valor</div>
+            <div class="col-4">Cantidad</div>
+        </div>
+        <div class="row productoLista" *ngFor="let producto of listaProductosSeleccionados">
+            <div class="col-4">{{producto.nombre}}</div>
+            <div class="col-4">{{producto.valor}}</div>
+            <div class="col-2">{{producto.cantidad}}</div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger" (click)="eliminarProducto(producto)">Eliminar</button>
             </div>
         </div>
-        <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-warning"  (click)="regresar()">Regresar </button>
+            <button type="button" class="btn btn-info" style="margin-left: 5px;" (click)="consultarTotal()">Consultar Total</button>
+        </div>
+
+        <div *ngIf="totalCompra!=null" class="col-12 totales">
+            <div> SubTotal: {{totalCompra.valorSinDescuentos}} </div>
+            <div> Total Descuentos: {{totalCompra.descuentos}} </div>
+            <div> Total Compra: {{totalCompra.valorTotal}} </div>
+
+            <button class="btn btn-info" (click)="comprar()">Comprar</button>
 
         </div>
     </div>

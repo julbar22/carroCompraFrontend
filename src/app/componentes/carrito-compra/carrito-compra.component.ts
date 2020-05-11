@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { CarroServiceService } from 'src/app/services/carro-service.service';
+import { createAotUrlResolver } from '@angular/compiler';
 
 @Component({
   selector: 'app-carrito-compra',
@@ -25,6 +26,7 @@ export class CarritoCompraComponent implements OnInit {
   }
 
   agregarProducto(producto) {
+    this.totalCompra = null;
     const indexProducto: number = this.listaProductosSeleccionados.findIndex(productoLista => productoLista.id == producto.id);
     if (indexProducto != -1) {
       this.listaProductosSeleccionados[indexProducto].cantidad++;
@@ -39,6 +41,7 @@ export class CarritoCompraComponent implements OnInit {
   }
 
   eliminarProducto(producto) {
+    this.totalCompra = null;
     const indexProducto: number = this.listaProductosSeleccionados.findIndex(productoLista => productoLista.id == producto.id);
     if (this.listaProductosSeleccionados[indexProducto].cantidad > 1) {
       this.listaProductosSeleccionados[indexProducto].cantidad--;
@@ -48,6 +51,31 @@ export class CarritoCompraComponent implements OnInit {
   }
 
   consultarTotal() {
-   // this.carroService.
+
+    const request = {
+      idCompra: this.carroSeleccionado.idCarrito,
+      productos: this.listaProductosSeleccionados
+    }
+    this.carroService.valorTotal(request).subscribe(data => {
+      this.totalCompra = data;
+    });
+  }
+
+  comprar() {
+    const request = {
+      idCompra: this.carroSeleccionado.idCarrito,
+      productos: this.listaProductosSeleccionados
+    }
+    this.carroService.comprar(request).subscribe(data => {
+      alert(data.descripcion);
+      this.seleccionCarro.emit(null);
+    });
+  }
+
+  regresar() {
+    this.carroService.eliminarCarro(this.carroSeleccionado.idCarrito).subscribe(data => {
+      alert(data.descripcion);
+      this.seleccionCarro.emit(null);
+    });
   }
 }
